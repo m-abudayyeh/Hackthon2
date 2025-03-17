@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منصة المنشورات</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+       .custom-section {
+            background-color: #204C5D; /* نفس اللون */
+            padding-top: 4rem;        /* يعادل py-16 في Tailwind */
+            padding-bottom: 4rem;     /* يعادل py-16 في Tailwind */
+            direction: rtl;           /* اتجاه من اليمين إلى اليسار */
+        }
+       .navbarh {
+
+  width: 100%;
+  background-color: #204C5D;
+  padding: 16px;
+  z-index: 50;
+  transition: all 0.3s;
+}
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              beige: "#F5ECE0",
+              lightBlue: "#5F99AE",
+              darkBlue: "#336D82",
+            },
+            fontFamily: {
+              almarai: ["Almarai", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <nav id="navbar" class="navbarh">
+      <div class="container mx-auto flex justify-between items-center">
+          <a href="#" class="flex items-center text-white text-2xl font-bold">
+              <span class="ml-2">عطاء</span>
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F5ECE0" stroke-width="1.5"/>
+                  <path d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M12 16V12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+          </a>
+          <div class="hidden md:flex space-x-1 space-x-reverse">
+              <a href="index.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+              <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+              <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+              <a href="#activities" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">أنشطتنا</a>
+              <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+              <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+              <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+          </div>
+          <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+          </button>
+      </div>
+      <div id="mobileMenu" class="md:hidden hidden bg-[#204C5D] p-4 absolute w-full transition-all duration-300">
+          <div class="flex flex-col space-y-3">
+            <a href="index.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+            <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+            <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+            <a href="#activities" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">أنشطتنا</a>
+            <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+            <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+            <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+          </div>
+      </div>
+  </nav>
+    <div class="flex justify-center items-center m-5">
+        <!-- زر لإظهار/إخفاء الفورم -->
+        <button id="toggleFormButton" class="bg-[#5F99AE] text-white py-2 px-6 rounded-md text-lg font-medium cursor-pointer transition duration-300 hover:bg-[#336D82] focus:outline-none focus:ring-2 focus:ring-[#136D82]">
+        إنشاء منشور
+        </button>
+      </div>
+      
+      <!-- الفورم الخاص بك -->
+      <div id="postFormContainer" style="display: none;">
+        <div class="section max-w-3xl mx-auto mb-10 bg-white p-6 rounded-lg shadow-lg">
+          <h2 class="text-2xl text-gray-800 mb-4 font-semibold">إنشاء منشور جديد</h2>
+          <form id="postForm" class="flex flex-col gap-6">
+            <div>
+              <label for="title" class="font-medium text-gray-700 mb-2 block">عنوان المنشور:</label>
+              <input type="text" id="title" required class="w-full p-4 border border-gray-300 rounded-md text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            </div>
+        
+            <div>
+              <label for="username" class="font-medium text-gray-700 mb-2 block">اسم المستخدم:</label>
+              <input type="text" id="username" required class="w-full p-4 border border-gray-300 rounded-md text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            </div>
+        
+            <div>
+              <label for="content" class="font-medium text-gray-700 mb-2 block">محتوى المنشور:</label>
+              <textarea id="content" required class="w-full p-4 border border-gray-300 rounded-md text-lg shadow-sm min-h-[120px] resize-y focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+        
+            <div>
+              <label for="imageInput" class="font-medium text-gray-700 mb-2 block">إضافة صورة:</label>
+              <input type="file" id="imageInput" accept="image/*" class="w-full p-4 border border-gray-300 rounded-md text-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+              <div id="imageContainer" class="mt-4 text-center"></div>
+            </div>
+        
+            <button type="submit" class="bg-[#336D82] text-white py-3 px-8 rounded-md text-lg font-medium cursor-pointer transition duration-300 hover:bg-[#5F99AE] focus:outline-none focus:ring-2 focus:ring-blue-500">
+              نشر
+            </button>
+          </form>
+        </div>
+      </div>
+        
+        
+
+      <div id="postDisplay" class="max-w-xl mx-auto py-4 px-2">
+        <!-- المنشورات ستظهر هنا -->
+      </div>
+    </div>
+
+    <footer class="custom-section">
+      <div class="container mx-auto px-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+              <div class="flex flex-col">
+                  <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">روابط سريعة</h3>
+                  <ul class="space-y-3">
+                      <li><a href="/" class=" text-white hover:text-[#E8D8C4] transition-all duration-300">الرئيسية</a></li>
+                      <li><a href="/about" class="text-white hover:text-[#E8D8C4] transition-all duration-300">من نحن</a></li>
+                      <li><a href="/categories" class="text-white hover:text-[#E8D8C4] transition-all duration-300">التصنيفات</a></li>
+                      <li><a href="/subscriptions" class="text-white text-whitehover:text-[#E8D8C4] transition-all duration-300">خطط الاشتراك</a></li>
+                      <li><a href="/contact" class="text-white hover:text-[#E8D8C4] transition-all duration-300">تواصل معنا</a></li>
+                      <li><a href="/faq" class="text-white hover:text-[#E8D8C4] transition-all duration-300">الأسئلة الشائعة</a></li>
+                  </ul>
+              </div>
+              <div class="flex flex-col">
+                  <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">حسابك</h3>
+                  <ul class="space-y-3">
+                      <li><a href="/signin" class=" text-white hover:z-[#E8D8C4] transition-all duration-300">تسجيل الدخول</a></li>
+                      <li><a href="/signup" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إنشاء حساب</a></li>
+                      <li><a href="/profile" class="text-white hover:text-[#E8D8C4] transition-all duration-300">ملفك الشخصي</a></li>
+                      <li><a href="/watchlist" class="text-white hover:text-[#E8D8C4] transition-all duration-300">قائمة المشاهدة</a></li>
+                      <li><a href="/payment" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إدارة الاشتراك</a></li>
+                      <li><a href="/settings" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إعدادات الحساب</a></li>
+                  </ul>
+              </div>
+              <div class="flex flex-col">
+                  <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تواصل معنا</h3>
+                  <ul class="space-y-4">
+                      <li class="flex items-center gap-3 text-white"><i class="fas fa-map-marker-alt"></i> الأردن - عمان</li>
+                      <li class="flex items-center gap-3 text-white"><i class="fas fa-phone"></i> +962 4 123 4567</li>
+                      <li class="flex items-center gap-3 text-white"><i class="fas fa-envelope"></i> support@docuhub.com</li>
+                      <li class="flex items-center gap-3 text-white"><i class="fas fa-clock"></i> 24/7 دعم فني</li>
+                  </ul>
+              </div>
+              <div class="flex flex-col">
+                  <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تابعنا</h3>
+                  <p class="mb-4 text-white">ابقَ على اطلاع بآخر الوثائقيات والإصدارات الجديدة.</p>
+                  <div class="flex gap-4">
+                      <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-facebook fa-2x"></i></a>
+                      <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-twitter fa-2x"></i></a>
+                      <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-instagram fa-2x"></i></a>
+                      <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-youtube fa-2x"></i></a>
+                      <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-tiktok fa-2x"></i></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-[#E8D8C4] border-opacity-20 text-center">
+          <p class="text-white">© <span id="year"></span> عطاء - جميع الحقوق محفوظة.</p>
+      </div>
+  </footer>
+
+    <!-- إضافة مكتبة Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+
+         // جلب الزر والفورم
+  const toggleButton = document.getElementById('toggleFormButton');
+  const postFormContainer = document.getElementById('postFormContainer');
+
+  // تغيير حالة ظهور الفورم عند الضغط على الزر
+  toggleButton.addEventListener('click', () => {
+    if (postFormContainer.style.display === 'none') {
+      postFormContainer.style.display = 'block';
+    } else {
+      postFormContainer.style.display = 'none';
+    }
+  });
+      // الحصول على عناصر الإدخال والعرض
+      const imageInput = document.getElementById("imageInput");
+      const imageContainer = document.getElementById("imageContainer");
+      let imageBase64 = ""; // سنخزن الصورة كسلسلة Base64
+
+      // دالة لضغط وتحجيم الصورة
+      function resizeAndCompressImage(
+        file,
+        maxWidth,
+        maxHeight,
+        quality,
+        callback
+      ) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function (event) {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = function () {
+            // حساب الأبعاد الجديدة مع الحفاظ على النسبة
+            let width = img.width;
+            let height = img.height;
+            if (width > maxWidth) {
+              height = height * (maxWidth / width);
+              width = maxWidth;
+            }
+            if (height > maxHeight) {
+              width = width * (maxHeight / height);
+              height = maxHeight;
+            }
+
+            // إنشاء canvas وضغط الصورة
+            const canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // تحويل إلى Base64 بجودة مخفضة
+            const dataUrl = canvas.toDataURL("image/jpeg", quality);
+            callback(dataUrl);
+          };
+        };
+      }
+
+      // الاستماع لحدث تغيير ملف الإدخال
+      imageInput.addEventListener("change", function (event) {
+        const file = event.target.files[0];
+
+        // التحقق من وجود ملف وأنه صورة
+        if (file && file.type.startsWith("image")) {
+          // ضغط الصورة إلى حد أقصى 800×600 بجودة 0.7
+          resizeAndCompressImage(
+            file,
+            800,
+            600,
+            0.7,
+            function (compressedBase64) {
+              imageBase64 = compressedBase64;
+
+              // إنشاء عنصر صورة لعرض الصورة المضغوطة
+              const img = document.createElement("img");
+              img.src = imageBase64;
+              img.alt = "معاينة الصورة";
+              img.style.maxWidth = "300px";
+
+              // مسح المحتوى السابق وإضافة الصورة الجديدة
+              imageContainer.innerHTML = "";
+              imageContainer.appendChild(img);
+            }
+          );
+        } else {
+          imageContainer.innerHTML = "الرجاء تحميل ملف صورة صالح.";
+          imageBase64 = "";
+        }
+      });
+
+      // عند إرسال النموذج
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // منع إرسال النموذج التقليدي
+
+          // الحصول على البيانات من النموذج
+          let title = document.getElementById("title").value;
+          let content = document.getElementById("content").value;
+          let username = document.getElementById("username").value;
+
+          // تعريف الكائن الجديد باستخدام الصورة المحولة إلى Base64
+          let newPost = {
+            title: title,
+            content: content,
+            username: username,
+            comment: "",
+            like: 0,
+            img: imageBase64, // استخدام سلسلة Base64 بدلاً من URL
+          };
+
+          // إرسال البيانات باستخدام Axios
+          axios
+            .post(
+              "https://authproject-62b2d-default-rtdb.firebaseio.com/CmnityFb.json",
+              newPost
+            )
+            .then(function (response) {
+              console.log("تم إنشاء المنشور بنجاح:", response.data);
+              alert("تم إرسال المنشور بنجاح!");
+              // إعادة تعيين النموذج والصورة بعد النجاح
+              document.getElementById("postForm").reset();
+              imageContainer.innerHTML = "";
+              imageBase64 = "";
+              // إعادة تحميل الصفحة لعرض المنشور الجديد
+              location.reload();
+            })
+            .catch(function (error) {
+              console.error("حدث خطأ أثناء إرسال البيانات:", error);
+              alert("فشل إرسال البيانات.");
+            });
+        });
+// جلب المنشورات الحالية
+axios
+  .get("https://authproject-62b2d-default-rtdb.firebaseio.com/CmnityFb.json")
+  .then(function (response) {
+    const posts = response.data;
+    const postDisplay = document.getElementById("postDisplay");
+    postDisplay.innerHTML = "";
+
+    if (!posts) {
+      postDisplay.innerHTML = "<p>لا توجد منشورات حاليًا.</p>";
+      return;
+    }
+
+    for (let key in posts) {
+      if (posts.hasOwnProperty(key)) {
+        const post = posts[key];
+        const postElement = document.createElement("div");
+        postElement.classList.add("post");
+
+        // بناء HTML الخاص بالمنشور
+        let postHTML = `
+          <div class="bg-white rounded-lg shadow-md mb-6 overflow-hidden">
+        <div class="p-4">
+            <div class="flex items-center mb-3">
+            <div class="h-10 w-10 rounded-full bg-[#336D82] m-2 flex items-center justify-center text-white font-bold mr-3">
+                ${post.username ? post.username.charAt(0) : "م"}
+            </div>
+            <div>
+                <p class="font-medium text-gray-800">${post.username || "مجهول"}</p>
+                <p class="text-xs text-gray-500">منذ دقائق</p>
+            </div>
+            </div>
+            <h3 class="text-lg font-bold mb-2">${post.title || "بدون عنوان"}</h3>
+            <p class="text-gray-700 mb-3">${post.content || ""}</p>
+        </div>
+        ${post.img ? `<div class="w-full"><img src="${post.img}" class="w-full h-auto object-cover"></div>` : ""}
+        <div class="border-t border-gray-200 mt-2">
+            <div class="flex gap-2 text-gray-600">
+            <!-- زر الإعجاب -->
+            <button
+                class="flex-1 py-2 px-4 border bg-gray-100 hover:bg-gray-200 font-medium rounded-md flex items-center justify-center space-x-2 transition duration-300"
+                id="likeButton-${key}"
+            >
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                />
+                </svg>
+                <span>الإعجابات: <span id="likeCount-${key}">${post.like || 0}</span></span>
+            </button>
+            <!-- زر التعليقات -->
+            <button
+                class="flex-1 py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-md flex items-center justify-center border border-gray-300 transition duration-300"
+                id="commentButton-${key}"
+            >
+                التعليقات (${post.comment ? post.comment.length : 0})
+            </button>
+            </div>
+            <!-- قسم التعليقات -->
+            <div id="commentsSection-${key}" class="hidden mt-2 p-4 bg-gray-100 rounded-lg shadow-sm">
+            ${
+                post.comment && post.comment.length > 0
+                ? post.comment
+                    .map(
+                        (comment) =>
+                        `<div class="mb-3 p-3 bg-white rounded-lg shadow-sm">
+                            <strong class="text-blue-600 font-medium">${comment.author || "مجهول"}:</strong>
+                            <span class="text-gray-700 text-sm">${comment.text}</span>
+                        </div>`
+                    )
+                    .join("")
+                : "<p class='text-center text-gray-500 italic'>لا توجد تعليقات بعد.</p>"
+            }
+            </div>
+        </div>
+        </div>
+        `;
+
+        postElement.innerHTML = postHTML;
+        postDisplay.appendChild(postElement);
+
+        // إضافة حدث النقر على زر الإعجاب
+        const likeButton = document.getElementById(`likeButton-${key}`);
+        likeButton.addEventListener("click", function () {
+          const updatedLikes = (post.like || 0) + 1;
+          axios
+            .patch(
+              `https://authproject-62b2d-default-rtdb.firebaseio.com/CmnityFb/${key}.json`,
+              { like: updatedLikes }
+            )
+            .then(function () {
+              document.getElementById(`likeCount-${key}`).textContent =
+                updatedLikes;
+            })
+            .catch(function (error) {
+              console.error("خطأ في تحديث الإعجاب:", error);
+            });
+        });
+
+        // إضافة حدث النقر على زر التعليقات
+        const commentButton = document.getElementById(`commentButton-${key}`);
+        const commentsSection = document.getElementById(`commentsSection-${key}`);
+        commentButton.addEventListener("click", function () {
+          if (commentsSection.classList.contains("hidden")) {
+            commentsSection.classList.remove("hidden");
+          } else {
+            commentsSection.classList.add("hidden");
+          }
+        });
+      }
+    }
+  })
+  .catch(function (error) {
+    console.error("خطأ في جلب البيانات:", error);
+    document.getElementById("postDisplay").innerHTML =
+      "<p>حدث خطأ أثناء تحميل المنشورات.</p>";
+  });
+
+    </script>
+  </body>
+</html>

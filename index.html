@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عطاء | منصة عربية للإبداع والمعرفة</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- إضافة مكتبة Swiper CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #E8D8C4;
+            scroll-behavior: smooth;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(32, 76, 93, 0.75), rgba(32, 76, 93, 0.6)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            right: 0;
+            background-color: #F5ECE0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to left, #204C5D, #487A8F);
+        }
+
+        .swiper {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        .activity-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            height: 300px;
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .activity-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .activity-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 6px;
+        }
+
+        .activity-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .activity-card:hover .activity-description {
+            max-height: 100px;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #204C5D;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #204C5D;
+        }
+
+        .primary-bg {
+            background-color: #204C5D;
+        }
+
+        .secondary-bg {
+            background-color: #487A8F;
+        }
+
+        .accent-bg {
+            background-color: #E8D8C4;
+        }
+        .custom-section {
+            background-color: #204C5D; /* نفس اللون */
+            padding-top: 4rem;        /* يعادل py-16 في Tailwind */
+            padding-bottom: 4rem;     /* يعادل py-16 في Tailwind */
+            direction: rtl;           /* اتجاه من اليمين إلى اليسار */
+        }
+        .navbarh {
+  position: fixed;
+  width: 100%;
+  background-color: #204C5D;
+  padding: 16px;
+  z-index: 50;
+  transition: all 0.3s;
+}
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- النافبار المتحرك -->
+    <nav id="navbar" class="navbarh">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center text-white text-2xl font-bold">
+                <span class="ml-2">عطاء</span>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F5ECE0" stroke-width="1.5"/>
+                    <path d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 16V12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <div class="hidden md:flex space-x-1 space-x-reverse">
+                <a href="#home" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+                <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+                <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+                <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+                <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+                <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-[#204C5D] p-4 absolute w-full transition-all duration-300">
+            <div class="flex flex-col space-y-3">
+              <a href="#home" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+              <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+              <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+              <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+              <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+
+              <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- قسم الهيرو -->
+    <section id="home" class="hero flex items-center justify-center">
+        <div class="text-center px-4">
+            <div class="floating inline-block bg-white bg-opacity-20 p-6 rounded-full mb-4">
+                <svg class="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 16V12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 text-shadow">عطاء</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 text-shadow">منصة عربية للإبداع والمعرفة والثقافة</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="bg-[#487A8F] hover:bg-[#204C5D] text-white px-8 py-3 rounded-lg transition-all duration-300 flex items-center">
+                    <span>اكتشف عالمنا</span>
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+                <button class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#204C5D] px-8 py-3 rounded-lg transition-all duration-300">
+                    شاهد الفيديو
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-2/5 mb-10 md:mb-0 overflow-hidden rounded-lg group">
+                    <div class="relative">
+                        <img src="ramadan2.jpg" alt="عن منصة عطاء" class="w-full max-w-md mx-auto rounded-lg shadow-xl transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:shadow-2xl">
+                        <div class="absolute inset-0 bg-[#204C5D] bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-500 ease-in-out rounded-lg"></div>
+                    </div>
+                </div>
+                <div class="md:w-3/5 md:pl-8">
+                    <div class="relative">
+                        <h2 class="inline-block text-4xl font-bold text-[#204C5D] mb-6 pb-2 relative section-title">
+                            من نحن
+                        </h2>
+                    </div>
+                    <p class="text-gray-700 mb-6 leading-relaxed text-xl">
+                        منصة <span class="font-bold text-[#204C5D] hover:text-[#487A8F] transition-colors duration-300">عطاء</span> هي بوابتك إلى عالم المعرفة والإبداع، حيث نقدم محتوى عربي أصيل في مختلف المجالات الثقافية والفكرية. تأسست المنصة عام 2020 بهدف إثراء المحتوى العربي الرقمي وتقديم منظور جديد للمعرفة.
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed text-xl">
+                        نعمل في <span class="font-bold text-[#204C5D] hover:text-[#487A8F] transition-colors duration-300">عطاء</span> على تجسير الفجوة بين الثقافة العربية الأصيلة والتقنيات الحديثة، مع التركيز على الجودة والأصالة في كل ما نقدمه. نؤمن أن المعرفة هي أثمن ما يمكن أن نقدمه لمجتمعنا.
+                    </p>
+                    <div class="flex flex-wrap gap-10">
+                        <div class="flex items-center group">
+                            <div class="w-16 h-16 bg-[#E8D8C4] rounded-full flex items-center justify-center text-[#204C5D] shadow-md transition-all duration-300 group-hover:bg-[#204C5D] group-hover:text-[#E8D8C4] group-hover:shadow-lg">
+                                <i class="fas fa-users text-2xl"></i>
+                            </div>
+                            <div class="mr-4">
+                                <h4 class="font-bold text-[#204C5D] text-2xl">+5,000</h4>
+                                <p class="text-base text-gray-600">مستخدم نشط</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center group">
+                            <div class="w-16 h-16 bg-[#E8D8C4] rounded-full flex items-center justify-center text-[#204C5D] shadow-md transition-all duration-300 group-hover:bg-[#204C5D] group-hover:text-[#E8D8C4] group-hover:shadow-lg">
+                                <i class="fas fa-book-open text-2xl"></i>
+                            </div>
+                            <div class="mr-4">
+                                <h4 class="font-bold text-[#204C5D] text-2xl">+1,200</h4>
+                                <p class="text-base text-gray-600">مقال</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم أنشطتنا في رمضان (السلايدر) -->
+    <section id="activities" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center section-title text-[#204C5D] mx-auto">أنشطتنا في رمضان</h2>
+            <div class="swiper mySwiper mt-10">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="activity-card">
+                            <img src="fotor.jpg" alt="إفطار جماعي">
+                            <div class="activity-overlay">
+                                <div class="activity-title">إفطار جماعي</div>
+                                <div class="activity-description">
+                                    تنظيم موائد إفطار جماعية للمحتاجين والصائمين، تجمع الناس على مائدة واحدة في أجواء رمضانية مميزة.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="activity-card">
+                            <img src="chalenge.jpg" alt="مسابقات رمضانية">
+                            <div class="activity-overlay">
+                                <div class="activity-title">مسابقات رمضانية</div>
+                                <div class="activity-description">
+                                    مسابقات متنوعة للكبار والصغار تشمل حفظ القرآن والمعلومات الدينية وأنشطة ترفيهية هادفة.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="activity-card">
+                            <img src="trod.jpg" alt="توزيع سلال غذائية">
+                            <div class="activity-overlay">
+                                <div class="activity-title">توزيع سلال غذائية</div>
+                                <div class="activity-description">
+                                    توزيع سلال غذائية رمضانية للأسر المحتاجة تحتوي على المواد الأساسية لشهر رمضان.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="activity-card">
+                            <img src="lesons.jpg" alt="دروس دينية">
+                            <div class="activity-overlay">
+                                <div class="activity-title">دروس دينية</div>
+                                <div class="activity-description">
+                                    دروس وورش عمل دينية وثقافية لتعزيز المعرفة الدينية وفهم رسالة الشهر الكريم.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="activites.html">
+                        <div class="activity-card">
+                            <img src="qran.jpg" alt="ليالي الذكر">
+                            <div class="activity-overlay">
+                                <div class="activity-title">ليالي الذكر</div>
+                                <div class="activity-description">
+                                    أمسيات روحانية تتضمن تلاوة القرآن وحلقات الذكر والإنشاد في جو من الخشوع.
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="#" class="inline-block px-8 py-3 bg-[#204C5D] text-white rounded-lg hover:bg-[#487A8F] transition-colors duration-300 shadow-md">
+                    عرض جميع الأنشطة
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم لماذا نحن -->
+    <section id="why-us" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center section-title text-[#204C5D] mx-auto">لماذا نحن</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+                <div class="bg-[#E8D8C4] p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-lightbulb text-4xl text-[#204C5D] mb-4"></i>
+                    <h3 class="text-2xl font-bold text-[#204C5D] mb-4">إبداع بلا حدود</h3>
+                    <p class="text-gray-700">نقدم محتوى إبداعيًا وفريدًا يلهم ويثري المعرفة في مختلف المجالات.</p>
+                </div>
+                <div class="bg-[#E8D8C4] p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-users text-4xl text-[#204C5D] mb-4"></i>
+                    <h3 class="text-2xl font-bold text-[#204C5D] mb-4">مجتمع متفاعل</h3>
+                    <p class="text-gray-700">مجتمع نشط ومتفاعل يشارك في بناء المعرفة وتبادل الأفكار.</p>
+                </div>
+                <div class="bg-[#E8D8C4] p-6 rounded-lg shadow-lg text-center">
+                    <i class="fas fa-book-open text-4xl text-[#204C5D] mb-4"></i>
+                    <h3 class="text-2xl font-bold text-[#204C5D] mb-4">محتوى متنوع</h3>
+                    <p class="text-gray-700">مقالات، فيديوهات، وثائقيات، وأكثر لتلبية جميع اهتماماتك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="custom-section">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/" class=" text-white hover:text-[#E8D8C4] transition-all duration-300">الرئيسية</a></li>
+                        <li><a href="/about" class="text-white hover:text-[#E8D8C4] transition-all duration-300">من نحن</a></li>
+                        <li><a href="/categories" class="text-white hover:text-[#E8D8C4] transition-all duration-300">التصنيفات</a></li>
+                        <li><a href="/subscriptions" class="text-white text-whitehover:text-[#E8D8C4] transition-all duration-300">خطط الاشتراك</a></li>
+                        <li><a href="/contact" class="text-white hover:text-[#E8D8C4] transition-all duration-300">تواصل معنا</a></li>
+                        <li><a href="/faq" class="text-white hover:text-[#E8D8C4] transition-all duration-300">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">حسابك</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/signin" class=" text-white hover:z-[#E8D8C4] transition-all duration-300">تسجيل الدخول</a></li>
+                        <li><a href="/signup" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إنشاء حساب</a></li>
+                        <li><a href="/profile" class="text-white hover:text-[#E8D8C4] transition-all duration-300">ملفك الشخصي</a></li>
+                        <li><a href="/watchlist" class="text-white hover:text-[#E8D8C4] transition-all duration-300">قائمة المشاهدة</a></li>
+                        <li><a href="/payment" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إدارة الاشتراك</a></li>
+                        <li><a href="/settings" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إعدادات الحساب</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تواصل معنا</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-map-marker-alt"></i> الأردن - عمان</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-phone"></i> +962 4 123 4567</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-envelope"></i> support@docuhub.com</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-clock"></i> 24/7 دعم فني</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تابعنا</h3>
+                    <p class="mb-4 text-white">ابقَ على اطلاع بآخر الوثائقيات والإصدارات الجديدة.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-tiktok fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 pt-6 border-t border-[#E8D8C4] border-opacity-20 text-center">
+            <p class="text-white">© <span id="year"></span> عطاء - جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+    
+    <!-- إضافة مكتبة Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <script>
+        // تهيئة السلايدر
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                },
+            },
+        });
+
+        // التحكم في قائمة الجوال
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // تحديث سنة حقوق النشر تلقائيًا
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

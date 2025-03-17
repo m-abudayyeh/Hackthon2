@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملف التعريف</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full">
+        <div class="bg-white rounded-lg shadow-xl p-8">
+            <div class="text-center mb-6">
+                <!-- Profile Image Section -->
+                <div class="mb-4 flex justify-center">
+                    <div class="relative">
+                        <img id="profileImage" class="w-24 h-24 rounded-full object-cover border-4 border-indigo-200" src="/api/placeholder/200/200" alt="صورة الملف الشخصي">
+                        <button id="changeImageBtn" class="absolute bottom-0 right-0 bg-indigo-600 text-white rounded-full p-2 shadow-md hover:bg-indigo-700 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">ملفك الشخصي</h1>
+                <p class="text-gray-600 mt-2">مرحباً بك، <span id="displayName" class="font-semibold text-indigo-600"></span></p>
+            </div>
+            
+            <div class="bg-indigo-50 rounded-md p-4 mb-6">
+                <h3 class="font-medium text-indigo-800 mb-2">معلومات الحساب</h3>
+                <p class="text-gray-700">
+                    يمكنك هنا إدارة حسابك أو الاستمتاع بالمحتوى المحمي.
+                </p>
+            </div>
+            
+            <div class="text-center">
+                <button id="signOutBtn" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors">
+                    تسجيل الخروج
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for changing profile image -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-full max-w-md">
+            <h3 class="text-lg font-medium text-gray-900 mb-4">تغيير صورة الملف الشخصي</h3>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="imageUrl">
+                    رابط الصورة
+                </label>
+                <input id="imageUrl" type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="أدخل رابط الصورة (URL)">
+            </div>
+            <div class="flex justify-end">
+                <button id="cancelImageBtn" class="mr-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    إلغاء
+                </button>
+                <button id="saveImageBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    حفظ
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="js/userprofile.js">
+    </script>
+</body>
+</html>

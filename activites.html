@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أنشطة الموقع</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white; /* جعل الخلفية بيضاء */
+        }
+        .activity-card {
+            display: flex;
+            align-items: center;
+            gap: 30px; /* مسافة بين النص والصورة */
+            padding: 20px;
+            background-color: #f8f9fa; /* لون خفيف لتمييز البطاقات */
+            color: #204C5D;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .activity-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .activity-img {
+            width: 250px; /* جعل العرض أصغر ليكون الطول أكبر */
+            height: 350px; /* زيادة الطول */
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .activity-text {
+            flex: 1;
+        }
+        .activity-text h2 {
+            color: #204C5D; /* لون العناوين */
+        }
+        @media (max-width: 768px) {
+            .activity-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .activity-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- النافبار المتحرك -->
+    <nav id="navbar" class="fixed w-full bg-[#204C5D] p-4 z-50 transition-all duration-300">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center text-white text-2xl font-bold">
+                <span class="ml-2">عطاء</span>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F5ECE0" stroke-width="1.5"/>
+                    <path d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 16V12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <div class="hidden md:flex space-x-1 space-x-reverse">
+                <a href="#home" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+                <a href="#about" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">من نحن</a>
+                <a href="#activities" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">أنشطتنا</a>
+                <a href="#contact" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-[#204C5D] p-4 absolute w-full transition-all duration-300">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-white hover:text-[#E8D8C4] py-2">الرئيسية</a>
+                <a href="#about" class="text-white hover:text-[#E8D8C4] py-2">من نحن</a>
+                <a href="#activities" class="text-white hover:text-[#E8D8C4] py-2">أنشطتنا</a>
+                <a href="#contact" class="text-white hover:text-[#E8D8C4] py-2">تواصل معنا</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-8 py-8">
+
+        <!-- نشاط 1 -->
+        <div class="activity-card">
+            <img src="dars.jpg" alt="دروس دينية" class="activity-img">
+            <div class="activity-text">
+                <h2 class="text-3xl font-bold mb-4">📖 دروس دينية</h2>
+                <p class="text-lg">
+                    دروس وورش عمل دينية وثقافية لتعزيز المعرفة الدينية وفهم رسالة الشهر الكريم.
+                </p>
+            </div>
+        </div>
+
+        <!-- نشاط 2 -->
+        <div class="activity-card mt-6">
+            <img src="tard.jpg" alt="أنشطة خيرية" class="activity-img">
+            <div class="activity-text">
+                <h2 class="text-3xl font-bold mb-4">🤲 أنشطة خيرية</h2>
+                <p class="text-lg">
+                    توزيع الطعام والملابس على المحتاجين خلال شهر رمضان المبارك.
+                </p>
+            </div>
+        </div>
+
+        <!-- نشاط 3 -->
+        <div class="activity-card mt-6">
+            <img src="ramadan.jpg" alt="حلقات قرآنية" class="activity-img">
+            <div class="activity-text">
+                <h2 class="text-3xl font-bold mb-4">📜 حلقات قرآنية</h2>
+                <p class="text-lg">
+                    حلقات لتحفيظ القرآن الكريم وتفسيره لفئات عمرية مختلفة.
+                </p>
+            </div>
+        </div>
+
+        <!-- نشاط 4 -->
+        <div class="activity-card mt-6">
+            <img src="11.jpg" alt="فعاليات مجتمعية" class="activity-img">
+            <div class="activity-text">
+                <h2 class="text-3xl font-bold mb-4">🎭 فعاليات مجتمعية</h2>
+                <p class="text-lg">
+                    فعاليات تهدف إلى تعزيز التواصل بين أفراد المجتمع وتنمية روح التعاون.
+                </p>
+            </div>
+        </div>
+    </div>
+     <!-- الفوتر -->
+     <footer class="custom-section">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/" class=" text-white hover:text-[#E8D8C4] transition-all duration-300">الرئيسية</a></li>
+                        <li><a href="/about" class="text-white hover:text-[#E8D8C4] transition-all duration-300">من نحن</a></li>
+                        <li><a href="/categories" class="text-white hover:text-[#E8D8C4] transition-all duration-300">التصنيفات</a></li>
+                        <li><a href="/subscriptions" class="text-white text-whitehover:text-[#E8D8C4] transition-all duration-300">خطط الاشتراك</a></li>
+                        <li><a href="/contact" class="text-white hover:text-[#E8D8C4] transition-all duration-300">تواصل معنا</a></li>
+                        <li><a href="/faq" class="text-white hover:text-[#E8D8C4] transition-all duration-300">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">حسابك</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/signin" class=" text-white hover:z-[#E8D8C4] transition-all duration-300">تسجيل الدخول</a></li>
+                        <li><a href="/signup" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إنشاء حساب</a></li>
+                        <li><a href="/profile" class="text-white hover:text-[#E8D8C4] transition-all duration-300">ملفك الشخصي</a></li>
+                        <li><a href="/watchlist" class="text-white hover:text-[#E8D8C4] transition-all duration-300">قائمة المشاهدة</a></li>
+                        <li><a href="/payment" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إدارة الاشتراك</a></li>
+                        <li><a href="/settings" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إعدادات الحساب</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تواصل معنا</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-map-marker-alt"></i> الأردن - عمان</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-phone"></i> +962 4 123 4567</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-envelope"></i> support@docuhub.com</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-clock"></i> 24/7 دعم فني</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تابعنا</h3>
+                    <p class="mb-4 text-white">ابقَ على اطلاع بآخر الوثائقيات والإصدارات الجديدة.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-tiktok fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 pt-6 border-t border-[#E8D8C4] border-opacity-20 text-center">
+            <p class="text-white">© <span id="year"></span> عطاء - جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+</body>
+</html>

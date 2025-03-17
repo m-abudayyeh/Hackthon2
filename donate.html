@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المقالات</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Custom colors from your scheme */
+        .swiper-button-next, .swiper-button-prev {
+            color: #204C5D;
+        }
+        .swiper-pagination-bullet-active {
+            background: #204C5D;
+        }
+        .primary-bg {
+            background-color: #204C5D;
+        }
+        .secondary-bg {
+            background-color: #487A8F;
+        }
+        .accent-bg {
+            background-color: #E8D8C4;
+        }
+        .primary-text {
+            color: #204C5D;
+        }
+        .secondary-text {
+            color: #487A8F;
+        }
+        .accent-text {
+            color: #E8D8C4;
+        }
+        .navbarh {
+  width: 100%;
+  background-color: #204C5D;
+  padding: 16px;
+  z-index: 50;
+  transition: all 0.3s;
+}
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <nav id="navbar" class="navbarh">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center text-white text-2xl font-bold">
+                <span class="ml-2">عطاء</span>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F5ECE0" stroke-width="1.5"/>
+                    <path d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 16V12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <div class="hidden md:flex space-x-1 space-x-reverse">
+                <a href="#home" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+                <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+                <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+                <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+                <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+                <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-[#204C5D] p-4 absolute w-full transition-all duration-300">
+            <div class="flex flex-col space-y-3">
+              <a href="#home" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+              <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+              <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+              <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+              <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+
+              <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content container -->
+    <div id="mainContent" class="container mx-auto p-4">
+        <!-- قسم البحث والتصفية -->
+        <section id="searchFilterSection" class="my-6 bg-white rounded-lg shadow p-4">
+            <div class="flex flex-col md:flex-row justify-between gap-4">
+                <div class="w-full md:w-1/2">
+                    <input type="text" id="searchInput" placeholder="ابحث عن مقالات..." class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#204C5D]">
+                </div>
+                <div class="w-full md:w-1/2 flex gap-2">
+                    <select id="categoryFilter" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#204C5D]">
+                        <option value="">جميع التصنيفات</option>
+                        <option value="زكاة">زكاة</option>
+                        <option value="صدقات">صدقات</option>
+                        <option value="تطوع">تطوع</option>
+                        <option value="إغاثة">إغاثة</option>
+                    </select>
+                    <button id="filterBtn" class="primary-bg text-white px-4 py-2 rounded hover:bg-[#487A8F]">تصفية</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المقالات الرئيسي -->
+        <section id="articlesSection" class="my-6">
+            <h2 class="text-2xl font-bold mb-6 primary-text">أحدث المقالات عن التبرعات والخير</h2>
+            <div id="articlesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <div class="flex justify-center mt-8">
+                <button id="loadMoreBtn" class="primary-bg text-white px-6 py-2 rounded-full hover:bg-[#487A8F] flex items-center">
+                    <span>تحميل المزيد</span>
+                    <i class="fas fa-chevron-down mr-2"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Single Article View (hidden by default) -->
+        <section id="singleArticleSection" class="my-6 hidden">
+            <button id="backBtn" class="mb-4 primary-bg text-white px-4 py-2 rounded hover:bg-[#487A8F] flex items-center">
+                <i class="fas fa-arrow-right mr-2"></i> العودة إلى المقالات
+            </button>
+            <div id="singleArticle" class="bg-white rounded-lg shadow p-6 accent-bg"></div>
+        </section>
+    </div>
+
+    <!-- نموذج الاشتراك في النشرة البريدية -->
+    <section class="container mx-auto p-6 my-8 accent-bg rounded-lg shadow">
+        <div class="text-center">
+            <h2 class="text-2xl font-bold primary-text mb-4">اشترك في نشرتنا البريدية</h2>
+            <p class="mb-6 text-gray-700">احصل على أحدث مقالات ومعلومات عن فرص التبرع والعمل الخيري</p>
+            <form id="newsletterForm" class="flex flex-col md:flex-row max-w-lg mx-auto">
+                <input type="email" placeholder="البريد الإلكتروني" class="flex-grow p-2 border border-gray-300 rounded-r-none rounded-l md:rounded-l-none md:rounded-r mb-2 md:mb-0 focus:outline-none focus:ring-2 focus:ring-[#204C5D]">
+                <button type="submit" class="primary-bg text-white px-6 py-2 rounded-l-none rounded-r md:rounded-r-none md:rounded-l hover:bg-[#487A8F]">اشتراك</button>
+            </form>
+        </div>
+    </section>
+    
+    <script>
+        // Static articles data with comments and reviews
+        const articlesData = [
+            {
+                id: 1,
+                title: "أهمية الزكاة في الإسلام وكيفية حسابها",
+                excerpt: "شرح مفصل عن الزكاة وكيفية حسابها وتوزيعها على مستحقيها وفق الشريعة الإسلامية",
+                image: "https://www.amin-sheikho.com/ar/wp-content/uploads/2018/07/zakat-p-02.jpg",
+                category: "زكاة",
+                date: "2025-03-10",
+                likes: 0,
+                comments: [],
+                reviews: []
+            },
+            {
+                id: 2,
+                title: "كيف تؤسس مشروعاً خيرياً ناجحاً",
+                excerpt: "خطوات عملية لتأسيس مشروع خيري مستدام وفعال يخدم المجتمع ويحقق الأثر المطلوب",
+                image: "https://fastercapital.com/i-ar/%D9%85%D9%86-%D8%A7%D9%84%D8%B4%D8%BA%D9%81-%D8%A5%D9%84%D9%89-%D8%A7%D9%84%D8%B9%D9%85%D9%84--%D8%A5%D8%B7%D9%84%D8%A7%D9%82-%D8%B4%D8%B1%D9%83%D8%A9-%D8%AE%D9%8A%D8%B1%D9%8A%D8%A9-%D9%86%D8%A7%D8%B4%D8%A6%D8%A9-%D9%86%D8%A7%D8%AC%D8%AD%D8%A9--%D8%A5%D8%B7%D9%84%D8%A7%D9%82-%D9%85%D8%B4%D8%B1%D9%88%D8%B9-%D8%AE%D9%8A%D8%B1%D9%8A-%D9%86%D8%A7%D8%AC%D8%AD---%D8%AA%D8%AD%D8%AF%D9%8A%D8%AF-%D8%B4%D8%BA%D9%81%D9%83-%D9%88%D9%87%D8%AF%D9%81%D9%83.webp",
+                category: "تطوع",
+                date: "2025-03-05",
+                likes: 0,
+                comments: [],
+                reviews: []
+            },
+            {
+                id: 3,
+                title: "دور الصدقات في تنمية المجتمع",
+                excerpt: "نظرة على الأثر الاجتماعي والاقتصادي للصدقات وكيف تساهم في تنمية المجتمعات المحلية",
+                image: "https://tujuhbulir.com/wp-content/uploads/2023/12/22-1000x696.webp",
+                category: "صدقات",
+                date: "2025-02-28",
+                likes: 0,
+                comments: [],
+                reviews: []
+            },
+            {
+                id: 4,
+                title: "حملات الإغاثة العاجلة: التنظيم والتنفيذ",
+                excerpt: "دليل شامل حول تنظيم وتنفيذ حملات الإغاثة العاجلة في حالات الكوارث والأزمات",
+                image: "https://www.hrw.org/sites/default/files/styles/opengraph/public/media_2023/06/202306mena_syria_humanitarian_aid_idlib.JPG?h=769babd5&itok=7MlKVjFP",
+                category: "إغاثة",
+                date: "2025-02-20",
+                likes: 0,
+                comments: [],
+                reviews: []
+            },
+            {
+                id: 5,
+                title: "التطوع عن بعد: فرص وتحديات",
+                excerpt: "استكشاف فرص التطوع عن بعد في العصر الرقمي والتحديات التي تواجه المتطوعين",
+                image: "https://fastercapital.com/i-ar/%D8%A7%D9%84%D8%B9%D9%85%D9%84-%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9%D9%8A--%D8%A5%D8%AD%D8%AF%D8%A7%D8%AB-%D9%81%D8%B1%D9%82--%D9%81%D8%B1%D8%B5-%D8%A7%D9%84%D8%AA%D8%B7%D9%88%D8%B9-%D8%A7%D9%84%D8%AA%D9%8A-%D8%AA%D9%82%D8%AF%D9%85%D9%87%D8%A7-%D8%B1%D8%A7%D8%A8%D8%B7%D8%A9-%D8%A7%D9%84%D9%85%D8%AA%D9%82%D8%A7%D8%B9%D8%AF%D9%8A%D9%86-%D8%A7%D9%84%D8%A3%D9%85%D8%B1%D9%8A%D9%83%D9%8A%D8%A9--%D9%81%D8%B1%D8%B5-%D9%84%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84-%D9%85%D8%B9-%D8%A7%D9%84%D8%A2%D8%AE%D8%B1%D9%8A%D9%86.webp",
+                category: "تطوع",
+                date: "2025-02-15",
+                likes: 0,
+                comments: [],
+                reviews: []
+            },
+            {
+                id: 6,
+                title: "زكاة المال وزكاة الفطر: الفروقات والأحكام",
+                excerpt: "مقارنة بين زكاة المال وزكاة الفطر من حيث الأحكام والشروط والمقادير ومواعيد الإخراج",
+                image: "https://www.ghirasalkhaeer.com/wp-content/uploads/2024/10/Artboard-18-1.png",
+                category: "زكاة",
+                date: "2025-02-10",
+                likes: 0,
+                comments: [],
+                reviews: []
+            }
+        ];
+
+        // Global variables
+        let currentPage = 1;
+        const articlesPerPage = 3;
+        let filteredArticles = [...articlesData];
+        let currentView = "list"; // "list" or "single"
+
+        // Calculate reading time (assuming 200 words per minute)
+        function calculateReadingTime(text) {
+            const words = text.split(" ").length;
+            const minutes = Math.ceil(words / 200);
+            return minutes;
+        }
+
+        // Create article card
+        function createArticleCard(article) {
+            const readingTime = calculateReadingTime(article.excerpt);
+            return `
+                <article onclick="showSingleArticle(${article.id})" class="bg-white rounded-lg shadow overflow-hidden transition-transform duration-300 hover:-translate-y-2 cursor-pointer">
+                    <div class="h-48 bg-gray-300 relative overflow-hidden">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover">
+                        <span class="absolute top-2 right-2 secondary-bg text-white text-xs px-2 py-1 rounded">${article.category}</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold primary-text mb-2">${article.title}</h3>
+                        <p class="text-gray-600 mb-2">${article.excerpt}</p>
+                        <div class="flex justify-between items-center text-sm text-gray-500 mb-2">
+                            <span>التاريخ: ${article.date}</span>
+                            <span>${readingTime} دقائق للقراءة</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <button onclick="likeArticle(${article.id}); event.stopPropagation();" class="flex items-center text-red-500 hover:text-red-700">
+                                <i class="fas fa-heart mr-1"></i>
+                                <span id="likes-${article.id}">${article.likes || 0}</span>
+                            </button>
+                            <div class="flex gap-2">
+                                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${window.location.href}" target="_blank" class="secondary-text hover:text-[#204C5D]" onclick="event.stopPropagation();">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=${window.location.href}" target="_blank" class="secondary-text hover:text-[#204C5D]" onclick="event.stopPropagation();">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Create single article view with comments and reviews
+        function createSingleArticle(article) {
+            const readingTime = calculateReadingTime(article.excerpt);
+            const commentsHtml = article.comments.length > 0 
+                ? article.comments.map(comment => `
+                    <div class="border-b border-gray-300 py-2">
+                        <p class="text-gray-700">${comment.text}</p>
+                        <span class="text-sm text-gray-500">بواسطة: ${comment.user} - ${comment.date}</span>
+                    </div>
+                `).join("")
+                : "<p class='text-gray-500'>لا توجد تعليقات بعد</p>";
+            const reviewsHtml = article.reviews.length > 0 
+                ? article.reviews.map(review => `
+                    <div class="border-b border-gray-300 py-2">
+                        <p class="text-gray-700">${review.text}</p>
+                        <div class="flex items-center">
+                            <span class="text-sm text-gray-500 mr-2">التقييم: ${review.rating}/5</span>
+                            ${Array(review.rating).fill('<i class="fas fa-star text-yellow-500"></i>').join("")}
+                            ${Array(5 - review.rating).fill('<i class="far fa-star text-gray-400"></i>').join("")}
+                        </div>
+                        <span class="text-sm text-gray-500">بواسطة: ${review.user} - ${review.date}</span>
+                    </div>
+                `).join("")
+                : "<p class='text-gray-500'>لا توجد مراجعات بعد</p>";
+
+            return `
+                <h1 class="text-3xl font-bold primary-text mb-4">${article.title}</h1>
+                <div class="mb-4">
+                    <img src="${article.image}" alt="${article.title}" class="w-full h-64 object-cover rounded-lg">
+                    <span class="inline-block mt-2 secondary-bg text-white text-sm px-3 py-1 rounded">${article.category}</span>
+                </div>
+                <p class="text-gray-700 mb-4">${article.excerpt}</p>
+                <div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+                    <span>التاريخ: ${article.date}</span>
+                    <span>${readingTime} دقائق للقراءة</span>
+                </div>
+                <div class="flex justify-between items-center mb-6">
+                    <button onclick="likeArticle(${article.id})" class="flex items-center text-red-500 hover:text-red-700">
+                        <i class="fas fa-heart mr-1"></i>
+                        <span id="likes-${article.id}">${article.likes || 0}</span>
+                    </button>
+                    <div class="flex gap-2">
+                        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${window.location.href}" target="_blank" class="secondary-text hover:text-[#204C5D]">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=${window.location.href}" target="_blank" class="secondary-text hover:text-[#204C5D]">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Comments Section -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold primary-text mb-2">التعليقات</h3>
+                    <div id="commentsList" class="mb-4">${commentsHtml}</div>
+                    <form id="commentForm-${article.id}" class="flex flex-col gap-2">
+                        <textarea id="commentInput-${article.id}" placeholder="أضف تعليقك..." class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#204C5D]"></textarea>
+                        <button type="submit" class="primary-bg text-white px-4 py-2 rounded hover:bg-[#487A8F]">إرسال التعليق</button>
+                    </form>
+                </div>
+                    </form>
+                </div>
+            `;
+        }
+
+        // Display articles list with pagination
+        function displayArticles() {
+            const articlesList = document.getElementById("articlesList");
+            articlesList.innerHTML = "";
+            const start = (currentPage - 1) * articlesPerPage;
+            const end = start + articlesPerPage;
+            const paginatedArticles = filteredArticles.slice(0, end);
+
+            paginatedArticles.forEach(article => {
+                articlesList.innerHTML += createArticleCard(article);
+            });
+
+            document.getElementById("loadMoreBtn").style.display = 
+                end >= filteredArticles.length ? "none" : "flex";
+        }
+
+        // Show single article
+        function showSingleArticle(articleId) {
+            const article = articlesData.find(a => a.id === articleId);
+            if (article) {
+                currentView = "single";
+                document.getElementById("searchFilterSection").classList.add("hidden");
+                document.getElementById("articlesSection").classList.add("hidden");
+                document.getElementById("singleArticleSection").classList.remove("hidden");
+                document.getElementById("singleArticle").innerHTML = createSingleArticle(article);
+
+                // Add event listeners for comment and review forms
+                document.getElementById(`commentForm-${articleId}`).addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    addComment(articleId);
+                });
+                document.getElementById(`reviewForm-${articleId}`).addEventListener("submit", (e) => {
+                    e.preventDefault();
+                    addReview(articleId);
+                });
+            }
+        }
+
+        // Back to articles list
+        function showArticlesList() {
+            currentView = "list";
+            document.getElementById("searchFilterSection").classList.remove("hidden");
+            document.getElementById("articlesSection").classList.remove("hidden");
+            document.getElementById("singleArticleSection").classList.add("hidden");
+            displayArticles();
+        }
+
+        // Like an article
+        window.likeArticle = function(articleId) {
+            const article = filteredArticles.find(a => a.id === articleId);
+            if (article) {
+                article.likes = (article.likes || 0) + 1;
+                document.getElementById(`likes-${articleId}`).textContent = article.likes;
+            }
+        };
+
+        // Add comment
+        function addComment(articleId) {
+            const commentInput = document.getElementById(`commentInput-${articleId}`);
+            const commentText = commentInput.value.trim();
+            if (commentText) {
+                const article = articlesData.find(a => a.id === articleId);
+                article.comments.push({
+                    text: commentText,
+                    user: "مستخدم مجهول", // Static user for now
+                    date: new Date().toLocaleDateString("ar")
+                });
+                commentInput.value = "";
+                showSingleArticle(articleId); // Refresh the view
+            }
+        }
+
+        // Add review
+        function addReview(articleId) {
+            const reviewInput = document.getElementById(`reviewInput-${articleId}`);
+            const ratingInput = document.getElementById(`ratingInput-${articleId}`);
+            const reviewText = reviewInput.value.trim();
+            const rating = parseInt(ratingInput.value);
+            if (reviewText && rating) {
+                const article = articlesData.find(a => a.id === articleId);
+                article.reviews.push({
+                    text: reviewText,
+                    rating: rating,
+                    user: "مستخدم مجهول", // Static user for now
+                    date: new Date().toLocaleDateString("ar")
+                });
+                reviewInput.value = "";
+                ratingInput.value = "1";
+                showSingleArticle(articleId); // Refresh the view
+            }
+        }
+
+        // Filter and search articles
+        function filterArticles() {
+            const searchTerm = document.getElementById("searchInput").value.toLowerCase();
+            const category = document.getElementById("categoryFilter").value;
+
+            filteredArticles = articlesData.filter(article => {
+                const matchesSearch = article.title.toLowerCase().includes(searchTerm) || 
+                                     article.excerpt.toLowerCase().includes(searchTerm);
+                const matchesCategory = !category || article.category === category;
+                return matchesSearch && matchesCategory;
+            });
+
+            currentPage = 1;
+            displayArticles();
+        }
+
+        // Event listeners
+        document.getElementById("loadMoreBtn").addEventListener("click", () => {
+            currentPage++;
+            displayArticles();
+        });
+
+        document.getElementById("filterBtn").addEventListener("click", filterArticles);
+        document.getElementById("searchInput").addEventListener("input", filterArticles);
+
+        document.getElementById("newsletterForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector("input[type='email']").value;
+            alert(`تم الاشتراك بنجاح باستخدام: ${email}`);
+        });
+
+        document.getElementById("backBtn").addEventListener("click", showArticlesList);
+
+        // Initial load
+        displayArticles();
+    </script>
+</body>
+</html>

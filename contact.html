@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | عطاء</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <style>
+        .custom-section {
+            background-color: #204C5D;
+            padding: 4rem 0;
+        }
+        .swiper-button-next, .swiper-button-prev { 
+            color: #204C5D; 
+        }
+        .swiper-pagination-bullet-active { 
+            background: #204C5D; 
+        }
+        .primary-bg { 
+            background-color: #204C5D; 
+        }
+        .secondary-bg { 
+            background-color: #487A8F; 
+        }
+        .accent-bg { 
+            background-color: #E8D8C4; 
+        }
+        .primary-text {
+            color: #204C5D;
+        }
+        .accent-text {
+            color: #E8D8C4;
+        }
+        body {
+            margin-top: 80px; /* Space for fixed navbar */
+        }
+        .navbarh {
+  position: fixed;
+  width: 100%;
+  background-color: #204C5D;
+  padding: 16px;
+  z-index: 50;
+  transition: all 0.3s;
+}
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <nav id="navbar" class="navbarh">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center text-white text-2xl font-bold">
+                <span class="ml-2">عطاء</span>
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#F5ECE0" stroke-width="1.5"/>
+                    <path d="M7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M12 16V12" stroke="#F5ECE0" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <div class="hidden md:flex space-x-1 space-x-reverse">
+                <a href="index.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+                <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+                <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+                <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+                <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+                <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+            </div>
+            <button id="mobileMenuButton" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-[#204C5D] p-4 absolute w-full transition-all duration-300">
+            <div class="flex flex-col space-y-3">
+              <a href="index.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">الرئيسية</a>
+              <a href="product.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">طرود الخير</a>
+              <a href="contact.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تواصل معنا</a>
+              <a href="CmnityFb.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">منتدى التواصل</a>
+              <a href="donate.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]"> مقالات </a>
+
+              <a href="Register.html" class="nav-link px-3 py-2 text-white hover:text-[#E8D8C4]">تسجيل دخول </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <!-- Hero Section with Swiper -->
+    <section class="pt-32 pb-16 primary-bg">
+        <div class="container mx-auto px-4">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="text-center text-white">
+                            <h1 class="text-4xl font-bold mb-4">تواصل معنا</h1>
+                            <p class="text-xl">نحن هنا للإجابة على استفساراتكم ومساعدتكم في مشاريعنا الخيرية</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="text-center text-white">
+                            <h1 class="text-4xl font-bold mb-4">فريق الدعم</h1>
+                            <p class="text-xl">فريقنا جاهز للاستماع إليك والرد على جميع استفساراتك</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="text-center text-white">
+                            <h1 class="text-4xl font-bold mb-4">انضم إلينا</h1>
+                            <p class="text-xl">كن جزءاً من رحلتنا في العطاء ومساعدة المحتاجين</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold mb-6 primary-text">أرسل رسالة</h2>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">الاسم الكامل</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#204C5D]" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#204C5D]" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">رقم الهاتف</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#204C5D]">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-2">الموضوع</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#204C5D]" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">الرسالة</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#204C5D]" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="primary-bg text-white py-2 px-6 rounded-md hover:bg-[#487A8F] transition duration-300 w-full">إرسال الرسالة</button>
+                        </div>
+                    </form>
+                    <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-md">
+                        تم إرسال رسالتك بنجاح. سنتواصل معك قريباً.
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                        <h2 class="text-2xl font-bold mb-6 primary-text">معلومات التواصل</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="primary-text mt-1 ml-3">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-700">العنوان</h3>
+                                    <p class="text-gray-600">الأردن - عمان</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="primary-text mt-1 ml-3">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-700">الهاتف</h3>
+                                    <p class="text-gray-600">+962 4 123 4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="primary-text mt-1 ml-3">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-700">البريد الإلكتروني</h3>
+                                    <p class="text-gray-600">support@docuhub.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="primary-text mt-1 ml-3">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-gray-700">ساعات العمل</h3>
+                                    <p class="text-gray-600">24/7 دعم فني</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h2 class="text-2xl font-bold mb-6 primary-text">تابعنا على وسائل التواصل</h2>
+                        <div class="flex space-x-4 space-x-reverse">
+                            <a href="#" class="primary-bg text-white p-3 rounded-full hover:bg-[#487A8F] transition duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="primary-bg text-white p-3 rounded-full hover:bg-[#487A8F] transition duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="primary-bg text-white p-3 rounded-full hover:bg-[#487A8F] transition duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="primary-bg text-white p-3 rounded-full hover:bg-[#487A8F] transition duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="primary-bg text-white p-3 rounded-full hover:bg-[#487A8F] transition duration-300">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section with Swiper -->
+    <section class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="bg-white p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-6 primary-text">زيارة مكاتبنا</h2>
+                <div class="swiper location-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="w-full h-96 bg-gray-200 rounded-md overflow-hidden relative">
+                                <img src="https://via.placeholder.com/1200x400" alt="مكتب عمان" class="w-full h-full object-cover">
+                                <div class="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white">
+                                    <h3 class="text-lg font-bold">فرعنا الرئيسي - عمان</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="w-full h-96 bg-gray-200 rounded-md overflow-hidden relative">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27051.11805334555!2d36.049145810839846!3d32.0587054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151b65cd4d8f17e1%3A0x30e86b8a97e4ac7d!2sOrange%20Digital%20Village%20Zarqa!5e0!3m2!1sen!2sjo!4v1742213291321!5m2!1sen!2sjo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <div class="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-60 text-white">
+                                    <h3 class="text-lg font-bold">فرع الزرقاء</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="custom-section">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">روابط سريعة</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/" class="text-white hover:text-[#E8D8C4] transition-all duration-300">الرئيسية</a></li>
+                        <li><a href="/about" class="text-white hover:text-[#E8D8C4] transition-all duration-300">من نحن</a></li>
+                        <li><a href="/categories" class="text-white hover:text-[#E8D8C4] transition-all duration-300">التصنيفات</a></li>
+                        <li><a href="/subscriptions" class="text-white hover:text-[#E8D8C4] transition-all duration-300">خطط الاشتراك</a></li>
+                        <li><a href="/contact" class="text-white hover:text-[#E8D8C4] transition-all duration-300">تواصل معنا</a></li>
+                        <li><a href="/faq" class="text-white hover:text-[#E8D8C4] transition-all duration-300">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">حسابك</h3>
+                    <ul class="space-y-3">
+                        <li><a href="/signin" class="text-white hover:text-[#E8D8C4] transition-all duration-300">تسجيل الدخول</a></li>
+                        <li><a href="/signup" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إنشاء حساب</a></li>
+                        <li><a href="/profile" class="text-white hover:text-[#E8D8C4] transition-all duration-300">ملفك الشخصي</a></li>
+                        <li><a href="/watchlist" class="text-white hover:text-[#E8D8C4] transition-all duration-300">قائمة المشاهدة</a></li>
+                        <li><a href="/payment" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إدارة الاشتراك</a></li>
+                        <li><a href="/settings" class="text-white hover:text-[#E8D8C4] transition-all duration-300">إعدادات الحساب</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تواصل معنا</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-map-marker-alt"></i> الأردن - عمان</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-phone"></i> +962 4 123 4567</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-envelope"></i> support@docuhub.com</li>
+                        <li class="flex items-center gap-3 text-white"><i class="fas fa-clock"></i> 24/7 دعم فني</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col">
+                    <h3 class="font-bold text-xl mb-6 text-[#E8D8C4]">تابعنا</h3>
+                    <p class="mb-4 text-white">ابقَ على اطلاع بآخر الوثائقيات والإصدارات الجديدة.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#" class="text-white hover:text-[#E8D8C4] transition-all duration-300"><i class="fab fa-tiktok fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 pt-6 border-t border-[#E8D8C4] border-opacity-20 text-center">
+            <p class="text-white">© <span id="year"></span> عطاء - جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Swiper for Hero Section
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Initialize Swiper for Location Section
+        const locationSwiper = new Swiper('.location-swiper', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && subject && message) {
+                document.getElementById('formSuccess').classList.remove('hidden');
+                document.getElementById('contactForm').reset();
+                setTimeout(function() {
+                    document.getElementById('formSuccess').classList.add('hidden');
+                }, 5000);
+            }
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuButton').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Set Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
