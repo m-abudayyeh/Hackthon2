@@ -48,5 +48,8 @@
 ## التواصل
 للاستفسارات أو الدعم، لا تترددوا في التواصل معنا من خلال صفحة التواصل على الموقع.
 
+## رابط فيجما
+- https://www.figma.com/design/YY47BDqJNbDFyFQCc2cRYY/Untitled?node-id=0-1&p=f&t=o0cUuBQgYdbS7KYI-0
+
 ---
 شكرًا لمساهمتكم في هذا العمل الخيري!
